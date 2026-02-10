@@ -242,3 +242,35 @@ function setupMusicPlayer() {
         }
     });
 } 
+
+// Open interactive mail and reveal main content
+function openLetter() {
+    const overlay = document.getElementById('envelopeOverlay');
+    const container = document.querySelector('.container');
+
+    if (overlay) {
+        overlay.classList.add('hidden');
+    }
+    if (container) {
+        container.classList.remove('hidden');
+    }
+
+    // Show music controls and try to start music on user interaction
+    if (config.music && config.music.enabled) {
+        const musicControls = document.getElementById('musicControls');
+        const bgMusic = document.getElementById('bgMusic');
+
+        if (musicControls) {
+            musicControls.classList.remove('hidden');
+        }
+
+        if (bgMusic && bgMusic.paused && config.music.autoplay) {
+            const playPromise = bgMusic.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+                playPromise.catch(() => {
+                    // Autoplay may still be blocked; user can use the button.
+                });
+            }
+        }
+    }
+}
