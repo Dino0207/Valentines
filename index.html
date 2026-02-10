@@ -16,12 +16,22 @@
         <!-- Hearts and bears will be added here by JavaScript -->
     </div>
 
+    <!-- Interactive Mail Start -->
+    <div id="envelopeOverlay" class="envelope-overlay">
+        <div class="envelope">
+            <div class="envelope-top"></div>
+            <div class="envelope-letter">
+                <button class="cute-btn open-letter-btn" onclick="openLetter()">❤️</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Content Container -->
-    <div class="container">
+    <div class="container hidden">
         <h1 id="valentineTitle"></h1>
         
         <!-- Music Player -->
-        <div id="musicControls" class="music-controls">
+        <div id="musicControls" class="music-controls hidden">
             <button id="musicToggle" class="music-btn">🎵 Play Music</button>
             <audio id="bgMusic" loop>
                 <source id="musicSource" type="audio/mpeg">
